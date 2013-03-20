@@ -10,16 +10,22 @@
     <link rel="stylesheet" href="https://djyhxgczejc94.cloudfront.net/builds/7ef089af6b2dd1ce613b404cd25fc6abc163336c.css">
     <script src='js/jquery.min.js'></script>
     <script src='js/bootstrap.min.js'></script>
+
+    <link href="js/jflickrfeed/colorbox/colorbox.css" rel="stylesheet" type="text/css" media="screen" /> 
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="js/jflickrfeed/colorbox/jquery.colorbox-min.js"></script>
+    <script src="js/jflickrfeed/cycle/jquery.cycle.all.min.js"></script>
+    <script src="js/jflickrfeed/jflickrfeed.min.js"></script>
   </head>
   
   <body>
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="#"><br></a>
           <div class="navbar-content">
             <ul class="nav  pull-right">
-              <li class="active hidden-phone"">
+              <li class="active hidden-phone">
                 <a href="index.html">Home</a> 
               </li>
               <li>
@@ -48,7 +54,7 @@
       <div class="row">
         <div class="span2 ">
           <img src="http://therolfstudio.com/sites/default/themes/corolla/images/rolf_image1.jpg
-" height="500 " style="height: 500px " class="hidden-phone "> 
+" style="height: 500px" class="hidden-phone "> 
         </div>
         <div class="span8">
           <div class="well well-small ">
@@ -63,7 +69,6 @@
               the muscular and connective tissues of the body into proper alignment.
               <br> 
             </p>
-            <div class="row "></div>
           </div>
           <div class="visible-phone row ">
             <div class="span2 ">
@@ -87,6 +92,56 @@
             </p>
             <br style="clear:both "> 
           </div>
+
+           <div class="row ">
+
+
+              <style>
+              .thumbs { margin: 10; padding: 0; overflow: hidden; }
+              .thumbs li { list-style: none; float: left; margin: 5px; padding: 3px; background: #eee; -moz-box-shadow: 0 0 4px #444; 
+              }
+              .thumbs li a { }
+              .thumbs li img { width: 100px; display: block; }
+              .thumbs li a img { border: none;}
+              </style>
+
+              <script>
+              $(function() {
+
+                  $('#cbox').jflickrfeed({
+                    limit: 14,
+                    qstrings: {
+                      id: '37304598@N02'
+                    },
+                    itemTemplate:
+                    '<li>' +
+                      '<a rel="colorbox" href="{{image}}" title="{{title}}">' +
+                        '<img src="{{image_s}}" alt="{{title}}" />' +
+                      '</a>' +
+                    '</li>'
+                  }, function(data) {
+                    $('#cbox a').colorbox();
+                  });
+
+                  // $('#nocallback').jflickrfeed({
+                  //   limit: 4,
+                  //   qstrings: {
+                  //     id: '37304598@N02'
+                  //   },
+                  //   useTemplate: false,
+                  //   itemCallback: function(item){
+                  //     $(this).append("<li><img src='" + item.image_m + "' class='img-polaroid' alt=''/></li>");
+                  //   }
+                  // });
+
+              });
+
+              </script>
+
+              <ul id="cbox" class="thumbs"></ul>
+    
+            </div>
+
         </div>
         <div class="span2">
           <img src="http://therolfstudio.com/sites/default/themes/corolla/images/rolf_image2.jpg"
